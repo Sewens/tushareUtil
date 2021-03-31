@@ -1,0 +1,18 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tushare_Schedule_Fetch
+
+# Controls when the action will run. 
+on:
+  # 定时进行数据抓取 每天8点和15点 各两次
+  schedule:
+    - cron: "0 8,157 * * *"
+
+jobs:
+  # 拉取比特币相关内容
+  bitcoin_job:
+    runs-on:
+      sewen-923
+    steps:
+      - name: Bitcoin base
+        run: python bitcoin_base.py
